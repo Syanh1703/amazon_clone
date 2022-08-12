@@ -75,7 +75,7 @@ class GlobalVars {
                 color: Colors.black,
               ),
             ),
-              Text(name, style: TextStyle(
+              Text(name, style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black
             ),)

@@ -67,4 +67,5 @@ class ProductDetailService{
       print(error.toString());
     }
   }
+
 }

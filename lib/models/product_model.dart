@@ -6,7 +6,7 @@ class ProductModel {
   final String name;
   final String des;
   final double price;
-  final double quantity;
+  final int quantity;
   final String category;
   final List<String> images;
   final String? id;
@@ -43,7 +43,7 @@ class ProductModel {
         name: map['name'] ?? '',
         des: map['des'] ?? '',
         price: map['price']?.toDouble() ?? 0.0,
-        quantity: map['quantity']?.toDouble() ?? 0.0,
+        quantity: map['quantity']?.toInt() ?? 0,
         category: map['category'] ?? '',
         images: List<String>.from(map['images']),
         id: map['_id'],

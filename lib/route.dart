@@ -1,8 +1,11 @@
+import 'package:amazon_clone/models/order_model.dart';
 import 'package:amazon_clone/models/product_model.dart';
 import 'package:amazon_clone/screens/add_product_screen.dart';
+import 'package:amazon_clone/screens/address_screen.dart';
 import 'package:amazon_clone/screens/auth_screen.dart';
 import 'package:amazon_clone/screens/categories_deal_screen.dart';
 import 'package:amazon_clone/screens/home_screen.dart';
+import 'package:amazon_clone/screens/order_detail_screen.dart';
 import 'package:amazon_clone/screens/product_detail_screen.dart';
 import 'package:amazon_clone/screens/search_screen.dart';
 import 'package:amazon_clone/widgets/bottom_bar.dart';
@@ -28,6 +31,12 @@ Route<dynamic> generateRoute(RouteSettings route){
     case ProductDetailScreen.productDetailRouteName:
       var product = route.arguments as ProductModel;
       return MaterialPageRoute(builder: (_) =>  ProductDetailScreen(product: product,));
+    case AddressScreen.addressRouteName:
+      var totalAmount = route.arguments as String;
+      return MaterialPageRoute(builder: (_) => AddressScreen(totalAmount: totalAmount,));
+    case OrderDetailScreen.orderScreenRouteName:
+      var order = route.arguments as OrderModel;
+      return MaterialPageRoute(builder: (_) => OrderDetailScreen(order: order));
     default:
       return MaterialPageRoute(builder: (_) => const Scaffold(
         body: Center(

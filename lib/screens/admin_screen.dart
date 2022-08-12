@@ -1,3 +1,4 @@
+import 'package:amazon_clone/screens/order_screen.dart';
 import 'package:amazon_clone/screens/products_manage_screen.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
@@ -49,9 +50,7 @@ class _AdminScreenState extends State<AdminScreen> {
     const Center(
       child: Text('Analytics Page'),
     ),
-    const Center(
-      child: Text('Cart Page'),
-    ),
+    const OrderScreen(),
   ];
 
   @override

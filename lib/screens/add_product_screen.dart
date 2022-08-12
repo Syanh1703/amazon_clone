@@ -54,7 +54,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
     if(_addProductKey.currentState!.validate() && images.isNotEmpty){
       adminService.sellProducts(ctx: context, name: _productNameController.text, des: _desController.text,
           price:  double.parse(_priceController.text),
-          quantity: double.parse(_quantityController.text),
+          quantity: int.parse(_quantityController.text),
           category: _category,
           images: images);
     }

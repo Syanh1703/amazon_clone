@@ -39,8 +39,8 @@ class UserModel{
       id: map['_id'] ?? '',
       name: map['name'] ?? '',
       email: map['email'] ?? '',
-      pass: map['pass']?? '',
-      address: map['address']?? '',
+      pass: map['pass'] ?? '',
+      address: map['address'] ?? '',
       type: map['type'] ?? '',
       token: map['token'] ?? '',
       cart: List<Map<String, dynamic>>.from(
