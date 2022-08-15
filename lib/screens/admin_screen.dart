@@ -1,3 +1,4 @@
+import 'package:amazon_clone/screens/analytics_screen.dart';
 import 'package:amazon_clone/screens/order_screen.dart';
 import 'package:amazon_clone/screens/products_manage_screen.dart';
 import 'package:badges/badges.dart';
@@ -47,9 +48,7 @@ class _AdminScreenState extends State<AdminScreen> {
 
   List <Widget> pages = [
     const ProductsManageScreen(),
-    const Center(
-      child: Text('Analytics Page'),
-    ),
+    const AnalyticsScreen(),
     const OrderScreen(),
   ];
 

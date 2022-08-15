@@ -28,29 +28,36 @@ class GlobalVars {
     'https://images-na.ssl-images-amazon.com/images/G/31/img21/shoes/September/SSW/pc-header._CB641971330_.jpg',
   ];
 
+  static const mobile = 'Mobiles';
+  static const essentials = 'Essentials';
+  static const appliances = 'Appliances';
+  static const books = 'Books';
+  static const fashion = 'Fashion';
+  static const elec = 'Electronics';
+
   static const List<Map<String, String>> categoryImages = [
     {
-      'title': 'Mobiles',
+      'title': mobile,
       'image': 'assets/image/mobiles.jpeg',
     },
     {
-      'title': 'Essentials',
+      'title': essentials,
       'image': 'assets/image/essentials.jpeg',
     },
     {
-      'title': 'Appliances',
+      'title': appliances,
       'image': 'assets/image/appliances.jpeg',
     },
     {
-      'title': 'Books',
+      'title': books,
       'image': 'assets/image/entertainment.jpeg',
     },
     {
-      'title': 'Fashion',
+      'title': fashion,
       'image': 'assets/image/fashion.jpeg',
     },
     {
-      'title': 'Electronics',
+      'title': elec,
       'image': 'assets/image/electronics.jpeg',
     }
   ];

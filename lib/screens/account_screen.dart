@@ -35,7 +35,7 @@ class AccountScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                             color: Colors.black
                           ),
-                          text: '${user.name}'
+                          text: user.name
                         ),
                       ],
                     ),
@@ -49,7 +49,7 @@ class AccountScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const TopButton(),
+          TopButton(),
           const SizedBox(height: 20),
           const Orders(),
         ],

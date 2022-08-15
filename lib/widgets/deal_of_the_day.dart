@@ -55,10 +55,10 @@ class _DealOfTheDayState extends State<DealOfTheDay> {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.only(left: 15, top: 5, right: 40),
-            child: const Text(
-              'Sy Anh', maxLines: 2,
+            child: Text(
+              product!.name, maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20
               ),
             ),
@@ -66,10 +66,10 @@ class _DealOfTheDayState extends State<DealOfTheDay> {
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.only(left: 15, top: 5, right: 40),
-            child: const Text(
-              '\$99.00', maxLines: 2,
+            child: Text(
+              '\$${product!.price}', maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20
               ),
             ),

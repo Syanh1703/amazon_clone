@@ -3,9 +3,9 @@ import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:amazon_clone/route.dart';
 import 'package:amazon_clone/screens/admin_screen.dart';
 import 'package:amazon_clone/screens/auth_screen.dart';
-import 'package:amazon_clone/screens/home_screen.dart';
 import 'package:amazon_clone/services/auth_service.dart';
 import 'package:amazon_clone/widgets/bottom_bar.dart';
+import 'package:amazon_clone/widgets/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -50,9 +50,11 @@ class _MyAppState extends State<MyApp> {
           elevation: 0,
           iconTheme: IconThemeData(color: GlobalVars.iconThemeColor),
         ),
+        useMaterial3: true,
       ),
       onGenerateRoute: (routeSettings) => generateRoute(routeSettings),
-      home: Provider.of<UserProvider>(context).user.token.isNotEmpty ? Provider.of<UserProvider>(context).user.type == 'user' ?
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty ?
+      Provider.of<UserProvider>(context).user.type == 'user' ?
       const BottomBar() : const AdminScreen()
           : AuthScreen(),
     );

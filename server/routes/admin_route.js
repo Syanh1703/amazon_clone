@@ -74,40 +74,41 @@ adminRouter.post('/admin/change-order-status', admin, async (req, res) => {
 });
 
 //Analytics page
-adminRouter.get('/admin/analytics', admin, async (res, req) => {
-    try{
-        const orders = await Order.find({});//get all the orders
+adminRouter.get('/admin/analytics', admin, async (req, res) => {
+    try {
+        const orders = await Order.find({});
         let totalEarnings = 0;
-
-        for(let i = 0; i<orders.length; i++){
-            for(let j = 0; j<orders[i].products.length; j++){
-                totalEarnings += orders[i].products[j].product.price * orders[i].products[j].quantity;
-            }
+    
+        for (let i = 0; i < orders.length; i++) {
+          for (let j = 0; j < orders[i].products.length; j++) {
+            totalEarnings +=
+              orders[i].products[j].quantity * orders[i].products[j].product.price;
+          }
         }
+        // CATEGORY WISE ORDER FETCHING
+        let mobileEarnings = await fetchCategoryWiseProduct("Mobiles");
+        let essentialEarnings = await fetchCategoryWiseProduct("Essentials");
+        let applianceEarnings = await fetchCategoryWiseProduct("Appliances");
+        let booksEarnings = await fetchCategoryWiseProduct("Books");
+        let fashionEarnings = await fetchCategoryWiseProduct("Fashion");
+        let electronicsEarnings = await fetchCategoryWiseProduct("Electronics");
 
-        //Category wise orders fetching
-        let mobilesEarning = await fetchCategoryWiseProduct('Mobiles');
-        let essentialsEarning =  await fetchCategoryWiseProduct('Essentials');
-        let appliancesEarning = await fetchCategoryWiseProduct('Appliances');
-        let bookEarning = await fetchCategoryWiseProduct('Books');
-        let fashionEarning = await fetchCategoryWiseProduct('Fashion');
-        let electronicsEarning = await fetchCategoryWiseProduct('Electronics');
-
+        console.log('Elec:' + electronicsEarnings + ', mobile: ' + mobileEarnings + ', essentials: ' + essentialEarnings);
+    
         let earnings = {
-            totalEarnings, 
-            mobilesEarning,
-            essentialsEarning,
-            appliancesEarning,
-            bookEarning,
-            fashionEarning,
-            electronicsEarning,
+          totalEarnings,
+          mobileEarnings,
+          essentialEarnings,
+          applianceEarnings,
+          booksEarnings,
+          fashionEarnings,
+          electronicsEarnings
         };
-
+    
         res.json(earnings);
-
-    }catch(error){
-        res.status(500).json({ error: error.message });
-    }
+      } catch (e) {
+            res.status(500).json({ error: e.message });
+      }
 });
 
 async function fetchCategoryWiseProduct(category){

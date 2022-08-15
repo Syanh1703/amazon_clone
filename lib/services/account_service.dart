@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:amazon_clone/models/order_model.dart';
+import 'package:amazon_clone/screens/auth_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/error_handling.dart';
 import '../constants/global_var.dart';
@@ -40,5 +42,17 @@ class AccountService{
       print(error.toString());
     }
     return orderList;
+  }
+
+  //Log out the user
+  void logOut(BuildContext context) async {
+      try{
+        //Check token on user device
+        SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+        await sharedPreferences.setString('x-auth-token', ''); //Empty the token
+        Navigator.pushNamedAndRemoveUntil(context, AuthScreen.routeAuthScreen, (route) => false);
+      }catch(error){
+        showSnackbar(context, error.toString());
+      }
   }
 }

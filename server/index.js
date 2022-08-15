@@ -1,6 +1,6 @@
 //Localhost: 127.0.0.1
 //Create the first API by Node JS
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const express = require('express');
 const app = express();
 

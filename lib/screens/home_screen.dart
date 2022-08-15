@@ -1,9 +1,7 @@
-import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:amazon_clone/screens/search_screen.dart';
 import 'package:amazon_clone/widgets/carousel_image.dart';
 import 'package:amazon_clone/widgets/deal_of_the_day.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../constants/global_var.dart';
 import '../widgets/address_box.dart';
